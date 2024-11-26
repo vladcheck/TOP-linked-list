@@ -1,4 +1,4 @@
-import Node from "./Node";
+import Node from "./Node.mjs";
 
 export default class LinkedList {
   #head = new Node(0); // keeps the size of the list
@@ -113,7 +113,7 @@ export default class LinkedList {
     return (
       this.#getAllValues()
         .map((value) => `( ${value} )`)
-        .join(" -> ") + "null"
+        .join(" -> ") + "-> null"
     );
   }
 
@@ -123,7 +123,7 @@ export default class LinkedList {
     const nodes = [];
 
     while (current) {
-      valuesInNodes.push(current);
+      nodes.push(current);
       current = current.nextNode;
     }
     return nodes;
@@ -131,7 +131,7 @@ export default class LinkedList {
 
   // WARNING: can be very resource heavy! Use with caution!
   #getAllValues() {
-    return this.#getAllNodes.map((node) => node.value);
+    return this.#getAllNodes().map((node) => node.value);
   }
 
   #decreaseSize() {
