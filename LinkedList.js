@@ -6,12 +6,16 @@ export default class LinkedList {
   constructor(values) {
     if (values instanceof Array && values.length > 0) {
       values.forEach((value) => {
-        const node = !value instanceof Node ? Node(value) : value;
-        this.#tail.nextNode = node;
-        this.#tail = node;
-        this.#head.value++;
+        this.append(value);
       });
     }
+  }
+
+  append(value) {
+    const node = value instanceof Node ? value : new Node(value);
+    this.#tail.nextNode = node;
+    this.#tail = node;
+    this.#head.value++;
   }
 
   get head() {
