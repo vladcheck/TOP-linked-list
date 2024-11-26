@@ -35,7 +35,12 @@ export default class LinkedList {
   }
 
   contains(value) {
-    return this.#getAllValues().includes(value);
+    let current = this.head();
+    while (current) {
+      if (current.value === value) return true;
+      current = current.nextNode;
+    }
+    return false;
   }
 
   find(value) {
