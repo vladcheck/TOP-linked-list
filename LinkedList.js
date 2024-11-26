@@ -28,6 +28,23 @@ export default class LinkedList {
     node.nextNode = next;
   }
 
+  removeAt(index) {
+    if (index >= this.size()) return;
+    if (index === this.size() - 1) return this.pop();
+
+    let previous = this.#head();
+    let current = this.head(); // actual first node
+    let next = current?.nextNode();
+
+    for (let i = 0; i < value; i++) {
+      previous = current;
+      current = next;
+      next = next.nextNode;
+    }
+
+    previous.nextNode = next;
+  }
+
   append(value) {
     const node = value instanceof Node ? value : new Node(value);
     this.#tail.nextNode = node;
