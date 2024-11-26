@@ -14,6 +14,14 @@ export default class LinkedList {
     }
   }
 
+  get head() {
+    return this.#head.nextNode; // head isn't considered as a node of the list
+  }
+
+  get tail() {
+    return this.#tail;
+  }
+
   get size() {
     return this.#head.value;
   }
