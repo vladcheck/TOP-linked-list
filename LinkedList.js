@@ -30,15 +30,19 @@ export default class LinkedList {
     this.#increaseSize();
   }
 
-  #getAllValues() {
+  #getAllNodes() {
     let current = this.#head.nextNode;
-    const valuesInNodes = [];
+    const nodes = [];
 
     while (current) {
-      valuesInNodes.push(current.value);
+      valuesInNodes.push(current);
       current = current.nextNode;
     }
-    return valuesInNodes;
+    return nodes;
+  }
+
+  #getAllValues() {
+    return this.#getAllNodes.map((node) => node.value);
   }
 
   #increaseSize() {
