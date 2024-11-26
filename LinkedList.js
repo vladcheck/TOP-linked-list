@@ -31,7 +31,12 @@ export default class LinkedList {
   }
 
   at(index) {
-    return this.#getAllNodes()[index];
+    let current = this.head();
+    for (let i = 0; i < index; i++) {
+      if (current === null) return null;
+      else if (current.value === value) return current;
+      else current = current.nextNode;
+    }
   }
 
   contains(value) {
