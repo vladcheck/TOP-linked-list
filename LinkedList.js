@@ -46,12 +46,17 @@ export default class LinkedList {
 
   pop() {
     if (this.#tail === this.#head) return;
-
     let current = this.head();
+
     while (current.nextNode != this.#tail) {
       current = current.nextNode;
     }
+
+    const tailValue = this.#tail.value;
     this.#tail = current;
+    current.nextNode = null;
+
+    return tailValue;
   }
 
   toString() {
