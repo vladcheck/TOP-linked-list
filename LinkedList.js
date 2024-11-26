@@ -11,6 +11,23 @@ export default class LinkedList {
     }
   }
 
+  insertAt(index, value) {
+    if (index >= this.size()) return;
+    if (index === this.size() - 1) this.append(value);
+
+    let current = this.head();
+    let next = current?.nextNode();
+
+    for (let i = 0; i < value; i++) {
+      current = next;
+      next = next.nextNode;
+    }
+
+    const node = value instanceof node ? value : new Node(value);
+    current.nextNode = node;
+    node.nextNode = next;
+  }
+
   append(value) {
     const node = value instanceof Node ? value : new Node(value);
     this.#tail.nextNode = node;
@@ -83,6 +100,7 @@ export default class LinkedList {
     );
   }
 
+  // WARNING: can be very resource heavy! Use with caution!
   #getAllNodes() {
     let current = this.#head.nextNode;
     const nodes = [];
@@ -94,6 +112,7 @@ export default class LinkedList {
     return nodes;
   }
 
+  // WARNING: can be very resource heavy! Use with caution!
   #getAllValues() {
     return this.#getAllNodes.map((node) => node.value);
   }
