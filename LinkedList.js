@@ -30,6 +30,10 @@ export default class LinkedList {
     this.#increaseSize();
   }
 
+  at(index) {
+    return this.#getAllNodes()[index];
+  }
+
   #getAllNodes() {
     let current = this.#head.nextNode;
     const nodes = [];
