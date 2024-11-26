@@ -70,6 +70,7 @@ export default class LinkedList {
     const tailValue = this.#tail.value;
     this.#tail = current;
     current.nextNode = null;
+    this.#decreaseSize();
 
     return tailValue;
   }
@@ -95,6 +96,10 @@ export default class LinkedList {
 
   #getAllValues() {
     return this.#getAllNodes.map((node) => node.value);
+  }
+
+  #decreaseSize() {
+    this.#head.value++;
   }
 
   #increaseSize() {
