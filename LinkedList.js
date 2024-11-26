@@ -44,6 +44,14 @@ export default class LinkedList {
     return allValues.find(value);
   }
 
+  toString() {
+    return (
+      this.#getAllValues()
+        .map((value) => `( ${value} )`)
+        .join(" -> ") + "null"
+    );
+  }
+
   #getAllNodes() {
     let current = this.#head.nextNode;
     const nodes = [];
