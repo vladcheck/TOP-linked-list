@@ -5,6 +5,14 @@ export default class Node {
     this.nextNode = nextNode;
   }
 
+  set value(val) {
+    if (typeof this.#value === typeof val) {
+      this.#value = val;
+    } else {
+      throw Error("Types don't match.");
+    }
+  }
+
   get value() {
     return this.#value;
   }
