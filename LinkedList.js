@@ -44,6 +44,16 @@ export default class LinkedList {
     return allValues.find(value);
   }
 
+  pop() {
+    if (this.#tail === this.#head) return;
+
+    let current = this.head();
+    while (current.nextNode != this.#tail) {
+      current = current.nextNode;
+    }
+    this.#tail = current;
+  }
+
   toString() {
     return (
       this.#getAllValues()
