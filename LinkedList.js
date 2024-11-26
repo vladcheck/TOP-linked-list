@@ -34,6 +34,10 @@ export default class LinkedList {
     return this.#getAllNodes()[index];
   }
 
+  contains(value) {
+    return this.#getAllValues().includes(value);
+  }
+
   #getAllNodes() {
     let current = this.#head.nextNode;
     const nodes = [];
