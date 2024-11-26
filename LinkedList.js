@@ -38,6 +38,12 @@ export default class LinkedList {
     return this.#getAllValues().includes(value);
   }
 
+  find(value) {
+    const allValues = this.#getAllValues();
+    if (!allValues.includes(value)) return null;
+    return allValues.find(value);
+  }
+
   #getAllNodes() {
     let current = this.#head.nextNode;
     const nodes = [];
