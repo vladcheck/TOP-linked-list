@@ -15,6 +15,22 @@ export default class LinkedList {
     const node = value instanceof Node ? value : new Node(value);
     this.#tail.nextNode = node;
     this.#tail = node;
+    this.#increaseSize();
+  }
+
+  prepend(value) {
+    const node = value instanceof Node ? value : new Node(value);
+    const afterFirstNode = this.#head.nextNode;
+    if (afterFirstNode) {
+      this.#tail = node;
+    } else {
+      this.node.nextNode = afterFirstNode;
+    }
+    this.#head.nextNode = node;
+    this.#increaseSize();
+  }
+
+  #increaseSize() {
     this.#head.value++;
   }
 
