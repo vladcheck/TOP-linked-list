@@ -30,6 +30,17 @@ export default class LinkedList {
     this.#increaseSize();
   }
 
+  #getAllValues() {
+    let current = this.#head.nextNode;
+    const valuesInNodes = [];
+
+    while (current) {
+      valuesInNodes.push(current.value);
+      current = current.nextNode;
+    }
+    return valuesInNodes;
+  }
+
   #increaseSize() {
     this.#head.value++;
   }
